@@ -21,14 +21,16 @@ st.markdown(
     """
     <style>
 
-    /* ---------------- GLOBAL ---------------- */
+    /* ========================================================
+       GLOBAL
+       ======================================================== */
 
     .stApp {
         background: #F7F5EF;
     }
 
     [data-testid="stHeader"] {
-        background: rgba(247, 245, 239, 0.95);
+        background: #F7F5EF;
     }
 
     [data-testid="stSidebar"] {
@@ -37,12 +39,14 @@ st.markdown(
     }
 
     .block-container {
-        max-width: 1250px;
-        padding-top: 2rem;
+        max-width: 1200px;
+        padding-top: 1.5rem;
         padding-bottom: 4rem;
     }
 
-    /* ---------------- TYPOGRAPHY ---------------- */
+    /* ========================================================
+       TYPOGRAPHY
+       ======================================================== */
 
     h1, h2, h3 {
         color: #30332F !important;
@@ -52,119 +56,23 @@ st.markdown(
         color: #666B63;
     }
 
-    /* ---------------- BRAND ---------------- */
-
-    .brand {
-        text-align: center;
-        padding: 8px 0 18px 0;
-    }
-
-    .brand-title {
-        font-size: 52px;
-        font-weight: 800;
-        letter-spacing: 5px;
-        color: #536A52;
-        line-height: 1;
-        margin-bottom: 10px;
-    }
-
-    .brand-tagline {
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 4px;
-        color: #7A9278;
-    }
-
-    .brand-subtitle {
-        margin-top: 7px;
-        font-size: 14px;
-        color: #777A72;
-    }
-
-    /* ---------------- SIDEBAR ---------------- */
-
-    .sidebar-brand {
-        text-align: center;
-        padding: 15px 5px 25px 5px;
-    }
-
-    .sidebar-logo {
-        font-size: 28px;
-        font-weight: 800;
-        letter-spacing: 3px;
-        color: #536A52;
-    }
-
-    .sidebar-caption {
-        font-size: 10px;
-        letter-spacing: 2px;
-        color: #7A9278;
-        font-weight: 700;
-    }
-
-    .sidebar-section {
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 1.5px;
-        color: #85877F;
-        margin: 18px 0 8px 5px;
-        text-transform: uppercase;
-    }
-
-    /* ---------------- HERO ---------------- */
-
-    .hero {
-        text-align: center;
-        padding: 30px 0 20px 0;
-    }
-
-    .hero h1 {
-        font-size: 38px;
-        font-weight: 750;
-        margin-bottom: 10px;
-    }
-
-    .hero p {
-        max-width: 680px;
-        margin: auto;
-        font-size: 16px;
-        line-height: 1.7;
-        color: #777A72;
-    }
-
-    /* ---------------- RESEARCH CARD ---------------- */
-
-    .research-card {
-        background: #FFFDF8;
-        border: 1px solid #E3E0D7;
-        border-radius: 22px;
-        padding: 26px;
-        margin-top: 20px;
-        box-shadow: 0 8px 30px rgba(70, 75, 65, 0.04);
-    }
-
-    .research-label {
-        font-size: 13px;
-        font-weight: 700;
-        color: #536A52;
-        margin-bottom: 8px;
-    }
-
-    /* ---------------- BUTTONS ---------------- */
+    /* ========================================================
+       BUTTONS
+       ======================================================== */
 
     .stButton > button {
         border-radius: 12px;
         border: 1px solid #D8D8CF;
         min-height: 42px;
         font-weight: 600;
+        background: #FFFDF8;
+        color: #454942;
     }
 
     .stButton > button:hover {
         border-color: #7A9278;
         color: #536A52;
     }
-
-    /* ---------------- PRIMARY BUTTON ---------------- */
 
     div.stButton > button[kind="primary"] {
         background: #536A52;
@@ -177,49 +85,128 @@ st.markdown(
         color: white;
     }
 
-    /* ---------------- SECTION TITLE ---------------- */
+    /* ========================================================
+       BRAND
+       ======================================================== */
 
-    .section-title {
-        font-size: 19px;
-        font-weight: 750;
-        color: #30332F;
-        margin-top: 34px;
-        margin-bottom: 14px;
-    }
-
-    .section-description {
-        font-size: 13px;
-        color: #85877F;
-        margin-top: -8px;
-        margin-bottom: 16px;
-    }
-
-    /* ---------------- SMALL CARDS ---------------- */
-
-    .soft-card {
-        background: #FFFDF8;
-        border: 1px solid #E3E0D7;
-        border-radius: 17px;
-        padding: 20px;
-        height: 100%;
-    }
-
-    .soft-card-title {
+    .brand-title {
+        text-align: center;
+        font-size: 52px;
+        font-weight: 800;
+        letter-spacing: 5px;
         color: #536A52;
-        font-weight: 700;
-        font-size: 15px;
+        line-height: 1.1;
+        margin-top: 10px;
         margin-bottom: 8px;
     }
 
-    .soft-card-text {
-        color: #777A72;
-        font-size: 13px;
-        line-height: 1.6;
+    .brand-tagline {
+        text-align: center;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 4px;
+        color: #7A9278;
+        margin-bottom: 8px;
     }
 
-    /* ---------------- RESEARCH RESULT ---------------- */
+    .brand-subtitle {
+        text-align: center;
+        font-size: 14px;
+        color: #777A72;
+        margin-bottom: 25px;
+    }
 
-    .result-card {
+    /* ========================================================
+       HERO
+       ======================================================== */
+
+    .hero-title {
+        text-align: center;
+        font-size: 38px;
+        font-weight: 750;
+        color: #30332F;
+        margin-top: 25px;
+        margin-bottom: 10px;
+    }
+
+    .hero-text {
+        text-align: center;
+        max-width: 680px;
+        margin: 0 auto 25px auto;
+        font-size: 16px;
+        line-height: 1.7;
+        color: #777A72;
+    }
+
+    /* ========================================================
+       CARDS
+       ======================================================== */
+
+    .card {
+        background: #FFFDF8;
+        border: 1px solid #E3E0D7;
+        border-radius: 18px;
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+
+    .card-title {
+        color: #536A52;
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 7px;
+    }
+
+    .card-text {
+        color: #777A72;
+        font-size: 13px;
+        line-height: 1.65;
+    }
+
+    /* ========================================================
+       RESEARCH AREA
+       ======================================================== */
+
+    .research-box {
+        background: #FFFDF8;
+        border: 1px solid #E3E0D7;
+        border-radius: 22px;
+        padding: 24px;
+        margin-top: 15px;
+        margin-bottom: 30px;
+        box-shadow: 0 8px 28px rgba(70, 75, 65, 0.04);
+    }
+
+    .research-label {
+        color: #536A52;
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    /* ========================================================
+       SECTION HEADINGS
+       ======================================================== */
+
+    .section-title {
+        color: #30332F;
+        font-size: 20px;
+        font-weight: 750;
+        margin-top: 35px;
+        margin-bottom: 5px;
+    }
+
+    .section-text {
+        color: #85877F;
+        font-size: 13px;
+        margin-bottom: 15px;
+    }
+
+    /* ========================================================
+       RESULT
+       ======================================================== */
+
+    .result-box {
         background: #FFFDF8;
         border: 1px solid #E1DED5;
         border-radius: 20px;
@@ -228,28 +215,30 @@ st.markdown(
         box-shadow: 0 8px 25px rgba(70, 75, 65, 0.04);
     }
 
-    .result-label {
+    .result-badge {
         display: inline-block;
         background: #E4ECDD;
         color: #536A52;
         border-radius: 20px;
-        padding: 5px 11px;
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.5px;
+        padding: 6px 12px;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 1px;
         margin-bottom: 12px;
     }
 
-    .answer-text {
-        color: #41443F;
+    .answer {
+        color: #4A4D47;
         font-size: 15px;
         line-height: 1.8;
     }
 
-    /* ---------------- EVIDENCE ---------------- */
+    /* ========================================================
+       EVIDENCE
+       ======================================================== */
 
-    .evidence-card {
-        background: #F4F5EE;
+    .evidence {
+        background: #F2F4ED;
         border-left: 4px solid #7A9278;
         border-radius: 12px;
         padding: 18px;
@@ -257,61 +246,66 @@ st.markdown(
     }
 
     .evidence-id {
-        font-weight: 800;
         color: #536A52;
         font-size: 12px;
+        font-weight: 800;
     }
 
     .evidence-source {
+        color: #454942;
         font-size: 13px;
         font-weight: 700;
-        color: #454942;
-        margin-top: 4px;
+        margin-top: 5px;
     }
 
     .evidence-text {
-        margin-top: 10px;
-        color: #5F635C;
+        color: #62665E;
         font-size: 14px;
         line-height: 1.8;
+        margin-top: 9px;
     }
 
-    /* ---------------- SCHOLAR ---------------- */
+    /* ========================================================
+       SCHOLAR CARDS
+       ======================================================== */
 
-    .scholar-card {
+    .scholar {
         background: #FFFDF8;
         border: 1px solid #E3E0D7;
         border-radius: 18px;
         padding: 20px;
-        height: 100%;
+        min-height: 190px;
     }
 
     .scholar-name {
+        color: #536A52;
         font-size: 17px;
         font-weight: 750;
-        color: #536A52;
     }
 
     .scholar-role {
         color: #8A8C84;
         font-size: 12px;
+        margin-top: 3px;
         margin-bottom: 12px;
     }
 
     .scholar-text {
-        color: #60645D;
+        color: #62665E;
         font-size: 14px;
         line-height: 1.7;
     }
 
-    /* ---------------- LIBRARY ---------------- */
+    /* ========================================================
+       BOOK CARDS
+       ======================================================== */
 
-    .book-card {
+    .book {
         background: #FFFDF8;
         border: 1px solid #E3E0D7;
         border-radius: 17px;
-        padding: 19px;
-        height: 100%;
+        padding: 20px;
+        min-height: 150px;
     }
 
     .book-category {
@@ -319,55 +313,85 @@ st.markdown(
         font-size: 10px;
         font-weight: 800;
         letter-spacing: 1px;
-        text-transform: uppercase;
     }
 
     .book-title {
         color: #3C403A;
         font-size: 16px;
         font-weight: 750;
-        margin: 7px 0;
+        margin-top: 7px;
+        margin-bottom: 6px;
     }
 
-    .book-author {
+    .book-description {
         color: #777A72;
         font-size: 13px;
+        line-height: 1.5;
     }
 
-    /* ---------------- STATUS ---------------- */
+    /* ========================================================
+       SIDEBAR
+       ======================================================== */
 
-    .status {
-        background: #E6ECDD;
+    .sidebar-logo {
+        text-align: center;
         color: #536A52;
-        padding: 7px 12px;
-        border-radius: 20px;
-        font-size: 11px;
-        font-weight: 700;
-        display: inline-block;
+        font-size: 28px;
+        font-weight: 800;
+        letter-spacing: 3px;
+        margin-top: 8px;
     }
 
-    /* ---------------- FOOTER ---------------- */
+    .sidebar-tagline {
+        text-align: center;
+        color: #7A9278;
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-bottom: 25px;
+    }
+
+    .sidebar-heading {
+        color: #85877F;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+        margin: 20px 0 8px 4px;
+        text-transform: uppercase;
+    }
+
+    /* ========================================================
+       FOOTER
+       ======================================================== */
 
     .footer {
         text-align: center;
-        padding: 45px 0 10px 0;
+        margin-top: 50px;
+        padding-top: 25px;
+        border-top: 1px solid #E3E0D7;
         color: #888A83;
         font-size: 12px;
+        line-height: 1.7;
     }
 
     .footer-main {
         color: #536A52;
         font-weight: 700;
-        margin-bottom: 5px;
+        margin-bottom: 4px;
     }
 
-    /* ---------------- TEXT AREA ---------------- */
+    /* ========================================================
+       TEXT INPUT
+       ======================================================== */
 
-    textarea {
-        border-radius: 14px !important;
+    textarea,
+    input {
+        border-radius: 12px !important;
     }
 
-    /* ---------------- MOBILE ---------------- */
+    /* ========================================================
+       MOBILE
+       ======================================================== */
 
     @media (max-width: 768px) {
 
@@ -375,7 +399,7 @@ st.markdown(
             font-size: 40px;
         }
 
-        .hero h1 {
+        .hero-title {
             font-size: 29px;
         }
 
@@ -413,39 +437,59 @@ if "searched" not in st.session_state:
 with st.sidebar:
 
     st.markdown(
-        """
-        <div class="sidebar-brand">
-            <div class="sidebar-logo">ILMORA</div>
-            <div class="sidebar-caption">
-                RESEARCH · DISCOVER · VERIFY
-            </div>
-        </div>
-        """,
+        '<div class="sidebar-logo">ILMORA</div>',
         unsafe_allow_html=True,
     )
 
     st.markdown(
-        '<div class="sidebar-section">Workspace</div>',
+        '<div class="sidebar-tagline">'
+        'RESEARCH · DISCOVER · VERIFY'
+        '</div>',
         unsafe_allow_html=True,
     )
 
-    if st.button("⌕  Research", use_container_width=True):
+    st.markdown(
+        '<div class="sidebar-heading">Workspace</div>',
+        unsafe_allow_html=True,
+    )
+
+    if st.button(
+        "⌕  Research",
+        use_container_width=True,
+    ):
         st.session_state.page = "Research"
+        st.rerun()
 
-    if st.button("▣  Library", use_container_width=True):
+    if st.button(
+        "▣  Library",
+        use_container_width=True,
+    ):
         st.session_state.page = "Library"
+        st.rerun()
 
-    if st.button("⇄  Compare Scholars", use_container_width=True):
+    if st.button(
+        "⇄  Compare Scholars",
+        use_container_width=True,
+    ):
         st.session_state.page = "Compare"
+        st.rerun()
 
-    if st.button("✎  Notes", use_container_width=True):
+    if st.button(
+        "✎  Notes",
+        use_container_width=True,
+    ):
         st.session_state.page = "Notes"
+        st.rerun()
 
-    if st.button("◷  History", use_container_width=True):
+    if st.button(
+        "◷  History",
+        use_container_width=True,
+    ):
         st.session_state.page = "History"
+        st.rerun()
 
     st.markdown(
-        '<div class="sidebar-section">Sources</div>',
+        '<div class="sidebar-heading">Language</div>',
         unsafe_allow_html=True,
     )
 
@@ -455,36 +499,32 @@ with st.sidebar:
 
     st.markdown("---")
 
-    st.markdown(
-        """
-        <div style="padding:5px;color:#777A72;font-size:12px;line-height:1.6;">
-        <b style="color:#536A52;">Research responsibly.</b><br>
-        ILMORA helps you discover and trace scholarly evidence.
-        The sources remain the authority.
-        </div>
-        """,
-        unsafe_allow_html=True,
+    st.caption(
+        "The sources are the authority.\n"
+        "AI is the research assistant."
     )
 
 
 # ============================================================
-# TOP BRAND
+# MAIN BRAND
 # ============================================================
 
 st.markdown(
-    """
-    <div class="brand">
-        <div class="brand-title">ILMORA</div>
+    '<div class="brand-title">ILMORA</div>',
+    unsafe_allow_html=True,
+)
 
-        <div class="brand-tagline">
-            RESEARCH. DISCOVER. VERIFY.
-        </div>
+st.markdown(
+    '<div class="brand-tagline">'
+    'RESEARCH. DISCOVER. VERIFY.'
+    '</div>',
+    unsafe_allow_html=True,
+)
 
-        <div class="brand-subtitle">
-            AI-Assisted Islamic Research
-        </div>
-    </div>
-    """,
+st.markdown(
+    '<div class="brand-subtitle">'
+    'AI-Assisted Islamic Research'
+    '</div>',
     unsafe_allow_html=True,
 )
 
@@ -496,30 +536,33 @@ st.markdown(
 if st.session_state.page == "Research":
 
     st.markdown(
-        """
-        <div class="hero">
-
-            <h1>What would you like to research?</h1>
-
-            <p>
-                Explore scholarly sources, compare viewpoints,
-                and trace ideas back to their original passages.
-            </p>
-
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    # ---------------- RESEARCH INPUT ----------------
-
-    st.markdown(
-        '<div class="research-card">',
+        '<div class="hero-title">'
+        'What would you like to research?'
+        '</div>',
         unsafe_allow_html=True,
     )
 
     st.markdown(
-        '<div class="research-label">Research question</div>',
+        '<div class="hero-text">'
+        'Explore scholarly sources, compare viewpoints, '
+        'and trace ideas back to their original passages.'
+        '</div>',
+        unsafe_allow_html=True,
+    )
+
+    # --------------------------------------------------------
+    # RESEARCH BOX
+    # --------------------------------------------------------
+
+    st.markdown(
+        '<div class="research-box">',
+        unsafe_allow_html=True,
+    )
+
+    st.markdown(
+        '<div class="research-label">'
+        'Research question'
+        '</div>',
         unsafe_allow_html=True,
     )
 
@@ -527,10 +570,10 @@ if st.session_state.page == "Research":
         "Research question",
         value=st.session_state.query,
         placeholder=(
-            "e.g. What do classical scholars say about patience "
-            "in the Qur'an?"
+            "e.g. What do classical scholars say about "
+            "patience in the Qur'an?"
         ),
-        height=125,
+        height=120,
         label_visibility="collapsed",
     )
 
@@ -546,7 +589,7 @@ if st.session_state.page == "Research":
 
     with col2:
 
-        source_filter = st.selectbox(
+        source_type = st.selectbox(
             "Source type",
             [
                 "All Sources",
@@ -562,7 +605,7 @@ if st.session_state.page == "Research":
 
     with col3:
 
-        language_filter = st.selectbox(
+        language = st.selectbox(
             "Language",
             [
                 "All Languages",
@@ -573,73 +616,120 @@ if st.session_state.page == "Research":
             label_visibility="collapsed",
         )
 
-    st.markdown("</div>", unsafe_allow_html=True)
-
-    # ---------------- SUGGESTED RESEARCH ----------------
-
     st.markdown(
-        '<div class="section-title">Suggested Research</div>',
+        "</div>",
         unsafe_allow_html=True,
     )
 
+    # --------------------------------------------------------
+    # SUGGESTED RESEARCH
+    # --------------------------------------------------------
+
     st.markdown(
-        '<div class="section-description">'
-        'Start with a focused research direction.'
+        '<div class="section-title">'
+        'Suggested Research'
         '</div>',
         unsafe_allow_html=True,
     )
 
-    c1, c2, c3 = st.columns(3)
+    st.markdown(
+        '<div class="section-text">'
+        'Explore a focused research direction.'
+        '</div>',
+        unsafe_allow_html=True,
+    )
 
-    suggestions = [
-        (
-            c1,
-            "Qur'anic Themes",
-            "Explore how classical tafsir explains a Qur'anic concept.",
-            "What do classical scholars say about patience in the Qur'an?"
-        ),
-        (
-            c2,
-            "Hadith Research",
-            "Find evidence and scholarly discussion around a hadith topic.",
-            "What are the scholarly explanations of the hadith about intentions?"
-        ),
-        (
-            c3,
-            "Compare Scholars",
-            "Examine where major scholars agree and differ.",
-            "How do Ibn Kathir and al-Tabari explain this concept?"
-        ),
-    ]
+    col1, col2, col3 = st.columns(3)
 
-    for column, title, description, example in suggestions:
+    with col1:
 
-        with column:
-
-            st.markdown(
-                f"""
-                <div class="soft-card">
-                    <div class="soft-card-title">
-                        {title}
-                    </div>
-
-                    <div class="soft-card-text">
-                        {description}
-                    </div>
+        st.markdown(
+            """
+            <div class="card">
+                <div class="card-title">
+                    Qur'anic Themes
                 </div>
-                """,
-                unsafe_allow_html=True,
+                <div class="card-text">
+                    Explore how classical tafsir explains
+                    important Qur'anic concepts.
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+        if st.button(
+            "Explore Tafsir →",
+            key="tafsir",
+            use_container_width=True,
+        ):
+
+            st.session_state.query = (
+                "What do classical scholars say about patience "
+                "in the Qur'an?"
             )
 
-            if st.button(
-                "Try this →",
-                key=f"suggestion_{title}",
-                use_container_width=True,
-            ):
-                st.session_state.query = example
-                st.rerun()
+            st.rerun()
 
-    # ---------------- RESEARCH ACTION ----------------
+    with col2:
+
+        st.markdown(
+            """
+            <div class="card">
+                <div class="card-title">
+                    Hadith Research
+                </div>
+                <div class="card-text">
+                    Search hadith-related sources and examine
+                    scholarly explanations.
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+        if st.button(
+            "Explore Hadith →",
+            key="hadith",
+            use_container_width=True,
+        ):
+
+            st.session_state.query = (
+                "What are the scholarly explanations "
+                "of the hadith about intentions?"
+            )
+
+            st.rerun()
+
+    with col3:
+
+        st.markdown(
+            """
+            <div class="card">
+                <div class="card-title">
+                    Compare Scholars
+                </div>
+                <div class="card-text">
+                    Examine where major scholars agree,
+                    differ, and use different evidence.
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+        if st.button(
+            "Compare Views →",
+            key="compare",
+            use_container_width=True,
+        ):
+
+            st.session_state.page = "Compare"
+            st.rerun()
+
+    # --------------------------------------------------------
+    # SEARCH
+    # --------------------------------------------------------
 
     if research_clicked:
 
@@ -654,63 +744,90 @@ if st.session_state.page == "Research":
             st.session_state.query = query
             st.session_state.searched = True
 
-    # ---------------- DEMO RESULT ----------------
+    # --------------------------------------------------------
+    # RESULT
+    # --------------------------------------------------------
 
     if st.session_state.searched:
 
         st.markdown(
-            """
-            <div class="result-card">
+            '<div class="result-box">',
+            unsafe_allow_html=True,
+        )
 
-                <div class="result-label">
-                    RESEARCH RESULT
-                </div>
+        st.markdown(
+            '<div class="result-badge">'
+            'RESEARCH RESULT'
+            '</div>',
+            unsafe_allow_html=True,
+        )
 
-                <h3>Research synthesis</h3>
+        st.markdown(
+            "### Research synthesis"
+        )
 
-                <div class="answer-text">
+        st.markdown(
+            f"""
+            <div class="answer">
 
-                    The retrieved scholarly sources should be used
-                    to construct a grounded answer to your question.
-                    ILMORA is designed to distinguish between the
-                    scholars' original statements and AI-generated
-                    synthesis.
+            <b>Research question:</b><br>
+            {st.session_state.query}
 
-                    <br><br>
+            <br><br>
 
-                    The final answer will be supported by evidence
-                    from the selected sources rather than relying
-                    only on the language model.
+            ILMORA will analyze the selected scholarly sources,
+            retrieve relevant passages, and construct a grounded
+            synthesis from the available evidence.
 
-                </div>
+            <br><br>
+
+            The final research answer will distinguish between
+            the original statements of scholars and AI-generated
+            synthesis.
 
             </div>
             """,
             unsafe_allow_html=True,
         )
 
-        # Evidence
+        st.markdown(
+            "</div>",
+            unsafe_allow_html=True,
+        )
+
+        # ----------------------------------------------------
+        # EVIDENCE
+        # ----------------------------------------------------
 
         st.markdown(
-            '<div class="section-title">Evidence</div>',
+            '<div class="section-title">'
+            'Evidence'
+            '</div>',
+            unsafe_allow_html=True,
+        )
+
+        st.markdown(
+            '<div class="section-text">'
+            'Important claims should be traceable to source passages.'
+            '</div>',
             unsafe_allow_html=True,
         )
 
         st.markdown(
             """
-            <div class="evidence-card">
+            <div class="evidence">
 
                 <div class="evidence-id">
                     E1
                 </div>
 
                 <div class="evidence-source">
-                    Source information will appear here
+                    Source title · Author · Volume · Page
                 </div>
 
                 <div class="evidence-text">
-                    Original Arabic, Urdu, or English passage
-                    retrieved from the indexed source will appear
+                    The original Arabic, Urdu, or English passage
+                    retrieved from the selected source will appear
                     here.
                 </div>
 
@@ -721,18 +838,18 @@ if st.session_state.page == "Research":
 
         st.markdown(
             """
-            <div class="evidence-card">
+            <div class="evidence">
 
                 <div class="evidence-id">
                     E2
                 </div>
 
                 <div class="evidence-source">
-                    Another scholarly source
+                    Supporting scholarly source
                 </div>
 
                 <div class="evidence-text">
-                    Supporting evidence and source metadata
+                    Supporting evidence and complete source metadata
                     will appear here.
                 </div>
 
@@ -740,8 +857,6 @@ if st.session_state.page == "Research":
             """,
             unsafe_allow_html=True,
         )
-
-        # Source actions
 
         e1, e2, e3 = st.columns(3)
 
@@ -763,50 +878,55 @@ if st.session_state.page == "Research":
                 use_container_width=True,
             )
 
-    # ---------------- CONTINUE RESEARCH ----------------
+    # --------------------------------------------------------
+    # CONTINUE RESEARCH
+    # --------------------------------------------------------
 
     st.markdown(
-        '<div class="section-title">Continue Your Research</div>',
+        '<div class="section-title">'
+        'Continue Your Research'
+        '</div>',
         unsafe_allow_html=True,
     )
 
-    r1, r2 = st.columns(2)
+    st.markdown(
+        '<div class="section-text">'
+        'Pick up where you left off.'
+        '</div>',
+        unsafe_allow_html=True,
+    )
 
-    with r1:
+    col1, col2 = st.columns(2)
+
+    with col1:
 
         st.markdown(
             """
-            <div class="soft-card">
-
-                <div class="soft-card-title">
+            <div class="card">
+                <div class="card-title">
                     Recent Research
                 </div>
-
-                <div class="soft-card-text">
+                <div class="card-text">
                     Your recent research sessions will appear here.
-                    Reopen a question and continue where you left off.
+                    Reopen a question and continue exploring.
                 </div>
-
             </div>
             """,
             unsafe_allow_html=True,
         )
 
-    with r2:
+    with col2:
 
         st.markdown(
             """
-            <div class="soft-card">
-
-                <div class="soft-card-title">
+            <div class="card">
+                <div class="card-title">
                     Your Library
                 </div>
-
-                <div class="soft-card-text">
-                    Browse built-in and uploaded scholarly sources,
+                <div class="card-text">
+                    Browse built-in and uploaded scholarly sources
                     organized by author, subject, language, and type.
                 </div>
-
             </div>
             """,
             unsafe_allow_html=True,
@@ -820,18 +940,17 @@ if st.session_state.page == "Research":
 elif st.session_state.page == "Library":
 
     st.markdown(
-        """
-        <div class="hero">
+        '<div class="hero-title">'
+        'Scholarly Library'
+        '</div>',
+        unsafe_allow_html=True,
+    )
 
-            <h1>Scholarly Library</h1>
-
-            <p>
-                Explore indexed Islamic sources and conduct research
-                directly across your selected collection.
-            </p>
-
-        </div>
-        """,
+    st.markdown(
+        '<div class="hero-text">'
+        'Explore Islamic sources and research directly across '
+        'your selected collection.'
+        '</div>',
         unsafe_allow_html=True,
     )
 
@@ -841,7 +960,9 @@ elif st.session_state.page == "Library":
     )
 
     st.markdown(
-        '<div class="section-title">Your Sources</div>',
+        '<div class="section-title">'
+        'Collections'
+        '</div>',
         unsafe_allow_html=True,
     )
 
@@ -849,34 +970,34 @@ elif st.session_state.page == "Library":
         (
             "TAFSIR",
             "Tafsir Collection",
-            "Classical Qur'anic commentary"
+            "Classical Qur'anic commentary and interpretation."
         ),
         (
             "HADITH",
             "Hadith Collection",
-            "Hadith texts and scholarly discussions"
+            "Hadith texts and scholarly explanations."
         ),
         (
             "FIQH",
             "Fiqh Collection",
-            "Jurisprudential sources"
+            "Jurisprudential sources and discussions."
         ),
         (
             "SEERAH",
             "Seerah Collection",
-            "Prophetic biography and history"
+            "Prophetic biography and Islamic history."
         ),
     ]
 
-    cols = st.columns(4)
+    columns = st.columns(4)
 
-    for column, book in zip(cols, books):
+    for column, book in zip(columns, books):
 
         with column:
 
             st.markdown(
                 f"""
-                <div class="book-card">
+                <div class="book">
 
                     <div class="book-category">
                         {book[0]}
@@ -886,7 +1007,7 @@ elif st.session_state.page == "Library":
                         {book[1]}
                     </div>
 
-                    <div class="book-author">
+                    <div class="book-description">
                         {book[2]}
                     </div>
 
@@ -897,26 +1018,39 @@ elif st.session_state.page == "Library":
 
             st.button(
                 "Explore →",
-                key=f"book_{book[0]}",
+                key=f"library_{book[0]}",
                 use_container_width=True,
             )
 
     st.markdown(
-        '<div class="section-title">Upload a Source</div>',
+        '<div class="section-title">'
+        'Upload a Source'
+        '</div>',
         unsafe_allow_html=True,
     )
 
-    uploaded = st.file_uploader(
-        "Upload PDF or TXT",
-        type=["pdf", "txt"],
-        help="Upload a scholarly source to add it to your research workspace.",
+    st.markdown(
+        '<div class="section-text">'
+        'Add a PDF or TXT source to your research workspace.'
+        '</div>',
+        unsafe_allow_html=True,
     )
 
-    if uploaded:
+    uploaded_file = st.file_uploader(
+        "Upload source",
+        type=["pdf", "txt"],
+        label_visibility="collapsed",
+    )
+
+    if uploaded_file:
 
         st.success(
-            f"{uploaded.name} uploaded successfully. "
-            "Indexing will be connected in the next phase."
+            f"{uploaded_file.name} uploaded successfully."
+        )
+
+        st.info(
+            "Document extraction and indexing will be connected "
+            "to the RAG pipeline next."
         )
 
 
@@ -927,56 +1061,58 @@ elif st.session_state.page == "Library":
 elif st.session_state.page == "Compare":
 
     st.markdown(
-        """
-        <div class="hero">
+        '<div class="hero-title">'
+        'Compare Scholars'
+        '</div>',
+        unsafe_allow_html=True,
+    )
 
-            <h1>Compare Scholars</h1>
-
-            <p>
-                Compare scholarly positions without hiding
-                differences between sources.
-            </p>
-
-        </div>
-        """,
+    st.markdown(
+        '<div class="hero-text">'
+        'Compare scholarly positions while preserving '
+        'differences between sources.'
+        '</div>',
         unsafe_allow_html=True,
     )
 
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        st.selectbox(
+
+        scholar_1 = st.selectbox(
             "Scholar 1",
             [
                 "Ibn Kathir",
                 "Al-Tabari",
                 "Al-Qurtubi",
-            ]
+            ],
         )
 
     with col2:
-        st.selectbox(
+
+        scholar_2 = st.selectbox(
             "Scholar 2",
             [
                 "Al-Tabari",
                 "Ibn Kathir",
                 "Al-Qurtubi",
-            ]
+            ],
         )
 
     with col3:
-        st.selectbox(
+
+        scholar_3 = st.selectbox(
             "Scholar 3",
             [
                 "Al-Qurtubi",
                 "Ibn Kathir",
                 "Al-Tabari",
-            ]
+            ],
         )
 
     topic = st.text_input(
         "Research topic",
-        placeholder="e.g. Patience in the Qur'an"
+        placeholder="e.g. Patience in the Qur'an",
     )
 
     if st.button(
@@ -986,37 +1122,36 @@ elif st.session_state.page == "Compare":
     ):
 
         st.markdown(
-            '<div class="section-title">Scholarly Views</div>',
+            '<div class="section-title">'
+            'Scholarly Views'
+            '</div>',
             unsafe_allow_html=True,
         )
 
         scholars = [
             (
-                "Ibn Kathir",
-                "Tafsir perspective",
-                "The retrieved position and supporting evidence will appear here."
+                scholar_1,
+                "Classical tafsir perspective",
             ),
             (
-                "Al-Tabari",
-                "Tafsir perspective",
-                "The retrieved position and supporting evidence will appear here."
+                scholar_2,
+                "Classical tafsir perspective",
             ),
             (
-                "Al-Qurtubi",
-                "Tafsir perspective",
-                "The retrieved position and supporting evidence will appear here."
+                scholar_3,
+                "Classical tafsir perspective",
             ),
         ]
 
-        cols = st.columns(3)
+        columns = st.columns(3)
 
-        for column, scholar in zip(cols, scholars):
+        for column, scholar in zip(columns, scholars):
 
             with column:
 
                 st.markdown(
                     f"""
-                    <div class="scholar-card">
+                    <div class="scholar">
 
                         <div class="scholar-name">
                             {scholar[0]}
@@ -1027,7 +1162,9 @@ elif st.session_state.page == "Compare":
                         </div>
 
                         <div class="scholar-text">
-                            {scholar[2]}
+                            The retrieved scholarly position,
+                            supporting evidence, and source references
+                            will appear here.
                         </div>
 
                     </div>
@@ -1036,14 +1173,16 @@ elif st.session_state.page == "Compare":
                 )
 
         st.markdown(
-            '<div class="section-title">Agreements & Differences</div>',
+            '<div class="section-title">'
+            'Agreements & Differences'
+            '</div>',
             unsafe_allow_html=True,
         )
 
         st.info(
             "The comparison engine will identify agreements, "
             "differences, evidence, and methodological observations "
-            "from the retrieved sources."
+            "from retrieved sources."
         )
 
 
@@ -1054,28 +1193,27 @@ elif st.session_state.page == "Compare":
 elif st.session_state.page == "Notes":
 
     st.markdown(
-        """
-        <div class="hero">
+        '<div class="hero-title">'
+        'Research Notes'
+        '</div>',
+        unsafe_allow_html=True,
+    )
 
-            <h1>Your Research Notes</h1>
-
-            <p>
-                Save important passages, observations, and ideas
-                while conducting your research.
-            </p>
-
-        </div>
-        """,
+    st.markdown(
+        '<div class="hero-text">'
+        'Save important passages, observations, and ideas '
+        'from your research.'
+        '</div>',
         unsafe_allow_html=True,
     )
 
     note_title = st.text_input(
         "Note title",
-        placeholder="e.g. Different views on patience"
+        placeholder="e.g. Different scholarly views on patience",
     )
 
     note = st.text_area(
-        "Write your note",
+        "Your note",
         placeholder="Write your research observation here...",
         height=220,
     )
@@ -1089,8 +1227,7 @@ elif st.session_state.page == "Notes":
         if note.strip():
 
             st.success(
-                "Note saved. Persistent note storage will be "
-                "connected in the next backend phase."
+                "Note saved successfully."
             )
 
         else:
@@ -1107,28 +1244,27 @@ elif st.session_state.page == "Notes":
 elif st.session_state.page == "History":
 
     st.markdown(
-        """
-        <div class="hero">
-
-            <h1>Research History</h1>
-
-            <p>
-                Revisit previous research questions and continue
-                exploring the evidence.
-            </p>
-
-        </div>
-        """,
+        '<div class="hero-title">'
+        'Research History'
+        '</div>',
         unsafe_allow_html=True,
     )
 
-    history_items = [
+    st.markdown(
+        '<div class="hero-text">'
+        'Revisit previous research questions and continue '
+        'exploring the evidence.'
+        '</div>',
+        unsafe_allow_html=True,
+    )
+
+    history = [
         "What do classical scholars say about patience?",
         "How do scholars explain sincerity?",
         "Different interpretations of a Qur'anic concept.",
     ]
 
-    for index, item in enumerate(history_items):
+    for index, question in enumerate(history):
 
         col1, col2 = st.columns([5, 1])
 
@@ -1136,20 +1272,24 @@ elif st.session_state.page == "History":
 
             st.markdown(
                 f"""
-                <div class="soft-card">
-                    <div class="soft-card-title">
-                        {item}
+                <div class="card">
+
+                    <div class="card-title">
+                        {question}
                     </div>
 
-                    <div class="soft-card-text">
+                    <div class="card-text">
                         Previous research session
                     </div>
+
                 </div>
                 """,
                 unsafe_allow_html=True,
             )
 
         with col2:
+
+            st.write("")
 
             st.button(
                 "Open",
