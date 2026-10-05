@@ -1,4 +1,4 @@
-```python
+
 import streamlit as st
 
 
@@ -15,21 +15,23 @@ st.set_page_config(
 
 
 # ============================================================
-# THEME
+# CUSTOM THEME
 # ============================================================
 
 st.markdown(
     """
     <style>
 
-    /* ---------- APP ---------- */
+    /* =========================
+       GLOBAL
+       ========================= */
 
     .stApp {
-        background: #F7F5EF;
+        background-color: #F7F5EF;
     }
 
     [data-testid="stHeader"] {
-        background: #F7F5EF;
+        background-color: #F7F5EF;
     }
 
     .block-container {
@@ -38,89 +40,94 @@ st.markdown(
         padding-bottom: 4rem;
     }
 
+    /* =========================
+       TYPOGRAPHY
+       ========================= */
 
-    /* ---------- SIDEBAR ---------- */
+    h1, h2, h3, h4 {
+        color: #30332F !important;
+        letter-spacing: -0.3px;
+    }
+
+    p {
+        color: #686C64;
+    }
+
+    /* =========================
+       SIDEBAR
+       ========================= */
 
     [data-testid="stSidebar"] {
-        background: #F1F0E9;
-        border-right: 1px solid #E1DED5;
+        background-color: #F0EFE8;
+        border-right: 1px solid #E0DED5;
     }
 
     [data-testid="stSidebar"] .block-container {
         padding-top: 1.5rem;
     }
 
+    /* =========================
+       ILMORA BRAND
+       ========================= */
 
-    /* ---------- TYPOGRAPHY ---------- */
-
-    h1, h2, h3, h4 {
-        color: #30332F !important;
-    }
-
-    p, label {
-        color: #686C64;
-    }
-
-
-    /* ---------- BRAND ---------- */
-
-    .brand-title {
+    .ilmora-brand {
         text-align: center;
         color: #536A52;
-        font-size: 50px;
+        font-size: 48px;
         font-weight: 800;
-        letter-spacing: 6px;
-        margin: 0;
-        padding: 0;
+        letter-spacing: 7px;
+        margin-top: 10px;
+        margin-bottom: 2px;
     }
 
-    .brand-tagline {
+    .ilmora-tagline {
         text-align: center;
-        color: #7A9278;
+        color: #789075;
         font-size: 10px;
         font-weight: 700;
         letter-spacing: 4px;
-        margin-top: 4px;
     }
 
-    .brand-subtitle {
+    .ilmora-subtitle {
         text-align: center;
         color: #777A72;
         font-size: 14px;
-        margin-top: 7px;
+        margin-top: 6px;
     }
 
+    /* =========================
+       SIDEBAR BRAND
+       ========================= */
 
-    /* ---------- SIDEBAR BRAND ---------- */
-
-    .sidebar-title {
+    .sidebar-brand {
+        text-align: center;
         color: #536A52;
         font-size: 27px;
         font-weight: 800;
-        letter-spacing: 3px;
-        text-align: center;
+        letter-spacing: 4px;
     }
 
     .sidebar-tagline {
-        color: #7A9278;
+        text-align: center;
+        color: #789075;
         font-size: 8px;
         font-weight: 700;
         letter-spacing: 2px;
-        text-align: center;
-        margin-bottom: 25px;
+        margin-bottom: 24px;
     }
 
-
-    /* ---------- BUTTONS ---------- */
+    /* =========================
+       BUTTONS
+       ========================= */
 
     .stButton > button {
         border-radius: 10px;
         border: 1px solid #D8D6CC;
-        background: #FFFDF8;
+        background-color: #FFFDF8;
         color: #454942;
         font-weight: 600;
         min-height: 42px;
-        transition: 0.2s ease;
+        transition: all 0.2s ease;
     }
 
     .stButton > button:hover {
@@ -128,86 +135,67 @@ st.markdown(
         color: #536A52;
     }
 
-    div.stButton > button[kind="primary"] {
-        background: #536A52;
-        color: white;
-        border: none;
-    }
-
-    div.stButton > button[kind="primary"]:hover {
-        background: #465C45;
-        color: white;
-    }
-
-
-    /* ---------- INPUTS ---------- */
+    /* =========================
+       INPUTS
+       ========================= */
 
     textarea,
     input {
         border-radius: 12px !important;
-        border-color: #D9D6CC !important;
-        background: #FFFDF8 !important;
+        border-color: #D8D5CB !important;
+        background-color: #FFFDF8 !important;
     }
 
-
-    /* ---------- HERO ---------- */
-
-    .hero-space {
-        margin-top: 35px;
-    }
-
-
-    /* ---------- DIVIDER ---------- */
-
-    hr {
-        border-color: #E2DED4 !important;
-    }
-
-
-    /* ---------- METRICS ---------- */
+    /* =========================
+       METRICS
+       ========================= */
 
     [data-testid="stMetric"] {
-        background: #FFFDF8;
-        border: 1px solid #E3E0D7;
-        padding: 15px;
+        background-color: #FFFDF8;
+        border: 1px solid #E1DED5;
         border-radius: 14px;
+        padding: 14px;
     }
 
-
-    /* ---------- EXPANDERS ---------- */
+    /* =========================
+       EXPANDERS
+       ========================= */
 
     [data-testid="stExpander"] {
-        background: #FFFDF8;
-        border: 1px solid #E3E0D7;
+        background-color: #FFFDF8;
+        border: 1px solid #E1DED5;
         border-radius: 14px;
     }
 
+    /* =========================
+       FILE UPLOADER
+       ========================= */
 
-    /* ---------- ALERTS ---------- */
-
-    [data-testid="stAlert"] {
-        border-radius: 12px;
+    [data-testid="stFileUploader"] {
+        background-color: #FFFDF8;
+        border-radius: 14px;
     }
 
+    /* =========================
+       DIVIDERS
+       ========================= */
 
-    /* ---------- FOOTER ---------- */
-
-    .footer-text {
-        text-align: center;
-        color: #777A72;
-        font-size: 12px;
+    hr {
+        border-color: #E1DED5 !important;
     }
 
-
-    /* ---------- MOBILE ---------- */
+    /* =========================
+       MOBILE
+       ========================= */
 
     @media (max-width: 768px) {
 
-        .brand-title {
+        .ilmora-brand {
             font-size: 38px;
+            letter-spacing: 5px;
         }
 
-        .brand-tagline {
+        .ilmora-tagline {
             font-size: 8px;
             letter-spacing: 3px;
         }
@@ -216,7 +204,6 @@ st.markdown(
             padding-left: 1rem;
             padding-right: 1rem;
         }
-
     }
 
     </style>
@@ -249,7 +236,7 @@ if "notes" not in st.session_state:
 with st.sidebar:
 
     st.markdown(
-        '<div class="sidebar-title">ILMORA</div>',
+        '<div class="sidebar-brand">ILMORA</div>',
         unsafe_allow_html=True,
     )
 
@@ -262,23 +249,38 @@ with st.sidebar:
 
     st.caption("WORKSPACE")
 
-    if st.button("⌕  Research", use_container_width=True):
+    if st.button(
+        "⌕  Research",
+        use_container_width=True,
+    ):
         st.session_state.page = "Research"
         st.rerun()
 
-    if st.button("▣  Library", use_container_width=True):
+    if st.button(
+        "▣  Library",
+        use_container_width=True,
+    ):
         st.session_state.page = "Library"
         st.rerun()
 
-    if st.button("⇄  Compare Scholars", use_container_width=True):
+    if st.button(
+        "⇄  Compare Scholars",
+        use_container_width=True,
+    ):
         st.session_state.page = "Compare"
         st.rerun()
 
-    if st.button("✎  Notes", use_container_width=True):
+    if st.button(
+        "✎  Notes",
+        use_container_width=True,
+    ):
         st.session_state.page = "Notes"
         st.rerun()
 
-    if st.button("◷  History", use_container_width=True):
+    if st.button(
+        "◷  History",
+        use_container_width=True,
+    ):
         st.session_state.page = "History"
         st.rerun()
 
@@ -286,7 +288,7 @@ with st.sidebar:
 
     st.caption("SOURCE FILTERS")
 
-    st.selectbox(
+    language = st.selectbox(
         "Language",
         [
             "All Languages",
@@ -296,8 +298,8 @@ with st.sidebar:
         ],
     )
 
-    st.selectbox(
-        "Source type",
+    source_type = st.selectbox(
+        "Source Type",
         [
             "All Sources",
             "Tafsir",
@@ -318,23 +320,23 @@ with st.sidebar:
 
 
 # ============================================================
-# BRAND
+# MAIN BRAND
 # ============================================================
 
 st.markdown(
-    '<div class="brand-title">ILMORA</div>',
+    '<div class="ilmora-brand">ILMORA</div>',
     unsafe_allow_html=True,
 )
 
 st.markdown(
-    '<div class="brand-tagline">'
+    '<div class="ilmora-tagline">'
     'RESEARCH. DISCOVER. VERIFY.'
     '</div>',
     unsafe_allow_html=True,
 )
 
 st.markdown(
-    '<div class="brand-subtitle">'
+    '<div class="ilmora-subtitle">'
     'AI-Assisted Islamic Research'
     '</div>',
     unsafe_allow_html=True,
@@ -344,7 +346,7 @@ st.divider()
 
 
 # ============================================================
-# RESEARCH
+# RESEARCH PAGE
 # ============================================================
 
 if st.session_state.page == "Research":
@@ -376,30 +378,29 @@ if st.session_state.page == "Research":
     with col1:
 
         st.caption(
-            "Your question will be answered using retrieved "
-            "scholarly evidence."
+            "Research across your selected scholarly sources."
         )
 
     with col2:
 
-        research_clicked = st.button(
+        if st.button(
             "Research →",
             type="primary",
             use_container_width=True,
-        )
+        ):
 
-    if research_clicked:
+            if not query.strip():
 
-        if not query.strip():
+                st.warning(
+                    "Enter a research question to begin."
+                )
 
-            st.warning(
-                "Enter a research question to begin."
-            )
+            else:
 
-        else:
+                st.session_state.query = query
+                st.session_state.searched = True
 
-            st.session_state.query = query
-            st.session_state.searched = True
+                st.rerun()
 
     st.write("")
 
@@ -410,25 +411,27 @@ if st.session_state.page == "Research":
     st.subheader("Suggested Research")
 
     st.caption(
-        "Choose a starting point if you're not sure what to ask."
+        "Start with a research direction."
     )
 
-    c1, c2, c3 = st.columns(3)
+    col1, col2, col3 = st.columns(3)
 
-    with c1:
+    with col1:
 
         with st.container(border=True):
 
+            st.caption("QUR'AN")
+
             st.markdown("### Qur'anic Themes")
 
-            st.caption(
-                "Explore how classical scholars explain "
-                "important Qur'anic concepts."
+            st.write(
+                "Explore how classical scholars "
+                "explain important Qur'anic concepts."
             )
 
             if st.button(
-                "Explore Tafsir",
-                key="suggest_tafsir",
+                "Explore Tafsir →",
+                key="tafsir_button",
                 use_container_width=True,
             ):
 
@@ -439,20 +442,22 @@ if st.session_state.page == "Research":
 
                 st.rerun()
 
-    with c2:
+    with col2:
 
         with st.container(border=True):
 
+            st.caption("HADITH")
+
             st.markdown("### Hadith Research")
 
-            st.caption(
+            st.write(
                 "Search hadith sources and examine "
                 "scholarly explanations."
             )
 
             if st.button(
-                "Explore Hadith",
-                key="suggest_hadith",
+                "Explore Hadith →",
+                key="hadith_button",
                 use_container_width=True,
             ):
 
@@ -463,20 +468,22 @@ if st.session_state.page == "Research":
 
                 st.rerun()
 
-    with c3:
+    with col3:
 
         with st.container(border=True):
 
-            st.markdown("### Compare Scholars")
+            st.caption("SCHOLARS")
 
-            st.caption(
-                "Examine agreements, differences, "
-                "and supporting evidence."
+            st.markdown("### Compare Views")
+
+            st.write(
+                "Compare scholarly positions, "
+                "evidence, and differences."
             )
 
             if st.button(
-                "Compare Views",
-                key="suggest_compare",
+                "Compare Scholars →",
+                key="compare_button",
                 use_container_width=True,
             ):
 
@@ -484,7 +491,7 @@ if st.session_state.page == "Research":
                 st.rerun()
 
     # --------------------------------------------------------
-    # RESULT
+    # RESEARCH RESULT
     # --------------------------------------------------------
 
     if st.session_state.searched:
@@ -494,110 +501,135 @@ if st.session_state.page == "Research":
         st.subheader("Research Result")
 
         st.caption(
-            f"Research question: {st.session_state.query}"
+            f"Question: {st.session_state.query}"
         )
 
         st.info(
-            "The RAG engine will retrieve relevant passages "
-            "from the selected scholarly sources and generate "
-            "a grounded synthesis."
+            "Your RAG engine will retrieve relevant "
+            "scholarly evidence and generate a grounded synthesis."
         )
 
         st.markdown("#### Evidence")
 
         with st.expander(
-            "E1 · View source evidence",
+            "E1 · Primary Evidence",
             expanded=True,
         ):
 
-            st.write(
-                "Source: Scholarly collection"
+            st.caption(
+                "SOURCE"
             )
 
             st.write(
-                "Author: Source metadata will appear here"
+                "Scholarly source information will appear here."
+            )
+
+            st.caption(
+                "ORIGINAL PASSAGE"
             )
 
             st.write(
-                "Volume / Page: Source metadata will appear here"
+                "Retrieved Arabic, Urdu, or English passage "
+                "will appear here."
             )
 
-            st.markdown(
-                "Original passage will appear here after "
-                "the retrieval pipeline is connected."
+            st.caption(
+                "REFERENCE"
             )
-
-        with st.expander("E2 · Supporting evidence"):
 
             st.write(
-                "Supporting source information will appear here."
+                "Book · Author · Volume · Page"
             )
+
+        with st.expander(
+            "E2 · Supporting Evidence"
+        ):
+
+            st.write(
+                "Additional retrieved evidence will appear here."
+            )
+
+        st.write("")
 
         col1, col2, col3 = st.columns(3)
 
         with col1:
+
             st.button(
                 "View Evidence",
                 use_container_width=True,
+                key="view_evidence",
             )
 
         with col2:
+
             st.button(
                 "Save Passage",
                 use_container_width=True,
+                key="save_passage",
             )
 
         with col3:
+
             st.button(
                 "Add Note",
                 use_container_width=True,
+                key="add_note",
             )
 
     # --------------------------------------------------------
-    # CONTINUE
+    # CONTINUE RESEARCH
     # --------------------------------------------------------
 
     st.divider()
 
     st.subheader("Continue Your Research")
 
-    c1, c2 = st.columns(2)
+    col1, col2 = st.columns(2)
 
-    with c1:
+    with col1:
 
         with st.container(border=True):
 
-            st.markdown("### Recent Research")
+            st.markdown("### Research History")
 
-            st.caption(
-                "Your previous research sessions will appear here."
+            st.write(
+                "Return to previous questions and "
+                "continue your research."
             )
 
-            st.button(
+            if st.button(
                 "Open History →",
-                key="research_history",
+                key="open_history",
                 use_container_width=True,
-            )
+            ):
 
-    with c2:
+                st.session_state.page = "History"
+                st.rerun()
+
+    with col2:
 
         with st.container(border=True):
 
-            st.markdown("### Your Library")
+            st.markdown("### Scholarly Library")
 
-            st.caption(
-                "Browse built-in and uploaded scholarly sources."
+            st.write(
+                "Browse built-in and uploaded "
+                "research sources."
             )
 
-            st.button(
+            if st.button(
                 "Open Library →",
-                key="research_library",
+                key="open_library",
                 use_container_width=True,
-            )
+            ):
+
+                st.session_state.page = "Library"
+                st.rerun()
 
 
 # ============================================================
-# LIBRARY
+# LIBRARY PAGE
 # ============================================================
 
 elif st.session_state.page == "Library":
@@ -605,7 +637,8 @@ elif st.session_state.page == "Library":
     st.title("Scholarly Library")
 
     st.write(
-        "Browse sources, authors, collections, and uploaded documents."
+        "Browse books, authors, collections, "
+        "and research documents."
     )
 
     st.write("")
@@ -615,52 +648,54 @@ elif st.session_state.page == "Library":
         placeholder="Search books, authors, topics...",
     )
 
+    st.write("")
+
     st.subheader("Collections")
 
-    books = [
+    collections = [
         (
-            "Tafsir",
+            "TAFSIR",
             "Qur'anic Commentary",
-            "Classical and contemporary tafsir sources."
+            "Classical and contemporary tafsir sources.",
         ),
         (
-            "Hadith",
+            "HADITH",
             "Hadith Sources",
-            "Hadith texts and scholarly explanations."
+            "Hadith texts and scholarly explanations.",
         ),
         (
-            "Fiqh",
+            "FIQH",
             "Jurisprudence",
-            "Fiqh sources and comparative discussions."
+            "Fiqh sources and comparative discussions.",
         ),
         (
-            "Seerah",
+            "SEERAH",
             "Prophetic Biography",
-            "Seerah and early Islamic history."
+            "Seerah and early Islamic history.",
         ),
     ]
 
     columns = st.columns(4)
 
-    for column, book in zip(columns, books):
+    for index, collection in enumerate(collections):
 
-        with column:
+        with columns[index]:
 
             with st.container(border=True):
 
-                st.caption(book[0].upper())
+                st.caption(collection[0])
 
                 st.markdown(
-                    f"### {book[1]}"
+                    f"### {collection[1]}"
                 )
 
-                st.caption(
-                    book[2]
+                st.write(
+                    collection[2]
                 )
 
                 st.button(
                     "Explore →",
-                    key=f"book_{book[0]}",
+                    key=f"collection_{index}",
                     use_container_width=True,
                 )
 
@@ -668,8 +703,9 @@ elif st.session_state.page == "Library":
 
     st.subheader("Add a Source")
 
-    st.caption(
-        "Upload a PDF or TXT document to your research workspace."
+    st.write(
+        "Upload a PDF or TXT document "
+        "to your research workspace."
     )
 
     uploaded_file = st.file_uploader(
@@ -684,13 +720,13 @@ elif st.session_state.page == "Library":
         )
 
         st.info(
-            "Document extraction and indexing will be connected "
-            "to the RAG pipeline next."
+            "Document extraction and indexing "
+            "will connect to the RAG pipeline."
         )
 
 
 # ============================================================
-# COMPARE
+# COMPARE SCHOLARS PAGE
 # ============================================================
 
 elif st.session_state.page == "Compare":
@@ -699,14 +735,14 @@ elif st.session_state.page == "Compare":
 
     st.write(
         "Compare scholarly positions while preserving "
-        "differences between sources."
+        "the differences between sources."
     )
 
     st.write("")
 
-    c1, c2, c3 = st.columns(3)
+    col1, col2, col3 = st.columns(3)
 
-    with c1:
+    with col1:
 
         scholar_1 = st.selectbox(
             "Scholar 1",
@@ -717,7 +753,7 @@ elif st.session_state.page == "Compare":
             ],
         )
 
-    with c2:
+    with col2:
 
         scholar_2 = st.selectbox(
             "Scholar 2",
@@ -728,7 +764,7 @@ elif st.session_state.page == "Compare":
             ],
         )
 
-    with c3:
+    with col3:
 
         scholar_3 = st.selectbox(
             "Scholar 3",
@@ -741,7 +777,7 @@ elif st.session_state.page == "Compare":
 
     topic = st.text_input(
         "Research topic",
-        placeholder="e.g. Patience in the Qur'an",
+        placeholder="Example: Patience in the Qur'an",
     )
 
     if st.button(
@@ -750,47 +786,68 @@ elif st.session_state.page == "Compare":
         use_container_width=True,
     ):
 
-        st.divider()
+        if not topic.strip():
 
-        st.subheader("Scholarly Views")
+            st.warning(
+                "Enter a research topic first."
+            )
 
-        columns = st.columns(3)
+        else:
 
-        selected = [
-            scholar_1,
-            scholar_2,
-            scholar_3,
-        ]
+            st.divider()
 
-        for column, scholar in zip(columns, selected):
+            st.subheader("Scholarly Views")
 
-            with column:
+            selected_scholars = [
+                scholar_1,
+                scholar_2,
+                scholar_3,
+            ]
 
-                with st.container(border=True):
+            columns = st.columns(3)
 
-                    st.markdown(
-                        f"### {scholar}"
-                    )
+            for index, scholar in enumerate(
+                selected_scholars
+            ):
 
-                    st.caption(
-                        "Classical scholarly perspective"
-                    )
+                with columns[index]:
 
-                    st.write(
-                        "The retrieved position, evidence, "
-                        "and source references will appear here."
-                    )
+                    with st.container(border=True):
 
-        st.subheader("Agreements & Differences")
+                        st.markdown(
+                            f"### {scholar}"
+                        )
 
-        st.info(
-            "The comparison engine will identify agreements, "
-            "differences, evidence, and methodological observations."
-        )
+                        st.caption(
+                            "SCHOLARLY POSITION"
+                        )
+
+                        st.write(
+                            "Retrieved scholarly position "
+                            "will appear here."
+                        )
+
+                        st.caption(
+                            "EVIDENCE"
+                        )
+
+                        st.write(
+                            "Supporting passages will appear here."
+                        )
+
+            st.subheader(
+                "Agreements & Differences"
+            )
+
+            st.info(
+                "The comparison engine will identify "
+                "agreements, differences, evidence, "
+                "and methodological observations."
+            )
 
 
 # ============================================================
-# NOTES
+# NOTES PAGE
 # ============================================================
 
 elif st.session_state.page == "Notes":
@@ -798,15 +855,15 @@ elif st.session_state.page == "Notes":
     st.title("Research Notes")
 
     st.write(
-        "Save important passages, observations, and ideas "
-        "from your research."
+        "Save important passages, observations, "
+        "and research ideas."
     )
 
     st.write("")
 
     note_title = st.text_input(
         "Note title",
-        placeholder="e.g. Different views on patience",
+        placeholder="Example: Different views on patience",
     )
 
     note_text = st.text_area(
@@ -837,7 +894,7 @@ elif st.session_state.page == "Notes":
             )
 
             st.success(
-                "Note saved."
+                "Note saved successfully."
             )
 
     if st.session_state.notes:
@@ -860,7 +917,7 @@ elif st.session_state.page == "Notes":
 
 
 # ============================================================
-# HISTORY
+# HISTORY PAGE
 # ============================================================
 
 elif st.session_state.page == "History":
@@ -868,8 +925,8 @@ elif st.session_state.page == "History":
     st.title("Research History")
 
     st.write(
-        "Revisit previous research questions and continue "
-        "exploring the evidence."
+        "Revisit previous research questions "
+        "and continue exploring the evidence."
     )
 
     st.write("")
@@ -884,9 +941,7 @@ elif st.session_state.page == "History":
 
         with st.container(border=True):
 
-            col1, col2 = st.columns(
-                [5, 1]
-            )
+            col1, col2 = st.columns([5, 1])
 
             with col1:
 
@@ -900,13 +955,16 @@ elif st.session_state.page == "History":
 
             with col2:
 
-                st.write("")
-
-                st.button(
+                if st.button(
                     "Open",
                     key=f"history_{index}",
                     use_container_width=True,
-                )
+                ):
+
+                    st.session_state.query = question
+                    st.session_state.page = "Research"
+                    st.session_state.searched = True
+                    st.rerun()
 
 
 # ============================================================
