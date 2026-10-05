@@ -981,4 +981,3 @@ st.caption(
 st.caption(
     "ILMORA · AI-Assisted Islamic Research"
 )
-```
