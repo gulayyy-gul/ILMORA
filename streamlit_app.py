@@ -1,5 +1,10 @@
 
+import os
+import hashlib
+import tempfile
+
 import streamlit as st
+
 
 
 # ============================================================
@@ -227,6 +232,128 @@ if "searched" not in st.session_state:
 
 if "notes" not in st.session_state:
     st.session_state.notes = []
+
+
+if "research_result" not in st.session_state:
+    st.session_state.research_result = None
+
+if "indexed_count" not in st.session_state:
+    st.session_state.indexed_count = 0
+
+
+# ============================================================
+# BACKEND CONNECTION
+# ============================================================
+
+def _configure_secrets():
+    """Make Streamlit secrets available to the backend configuration."""
+    try:
+        if st.secrets.get("GROQ_API_KEY"):
+            os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
+
+        if st.secrets.get("GROQ_MODEL"):
+            os.environ["GROQ_MODEL"] = st.secrets["GROQ_MODEL"]
+
+        if st.secrets.get("EMBEDDING_MODEL"):
+            os.environ["EMBEDDING_MODEL"] = st.secrets["EMBEDDING_MODEL"]
+
+        if st.secrets.get("CHROMA_DIR"):
+            os.environ["CHROMA_DIR"] = st.secrets["CHROMA_DIR"]
+    except Exception:
+        # Local .env configuration can still be used.
+        pass
+
+
+_configure_secrets()
+
+
+@st.cache_resource(show_spinner="Loading ILMORA research engine...")
+def get_rag_engine():
+    from backend.rag_engine import ILMORARAG
+    return ILMORARAG()
+
+
+def get_research_service():
+    from backend.services.research_service import ResearchService
+    return ResearchService(get_rag_engine())
+
+
+def _source_id(filename, file_bytes):
+    digest = hashlib.sha1(file_bytes).hexdigest()[:10]
+    stem = os.path.splitext(filename)[0]
+    safe_stem = "".join(
+        char.lower() if char.isalnum() else "_"
+        for char in stem
+    ).strip("_")
+    return f"{safe_stem or 'source'}_{digest}"
+
+
+def _save_uploaded_file(uploaded_file):
+    suffix = os.path.splitext(uploaded_file.name)[1].lower()
+    file_bytes = uploaded_file.getvalue()
+
+    temp = tempfile.NamedTemporaryFile(
+        delete=False,
+        suffix=suffix,
+    )
+    temp.write(file_bytes)
+    temp.close()
+
+    return temp.name, file_bytes
+
+
+def _display_research_result(result):
+    answer = result.get("answer", "").strip()
+
+    if answer:
+        st.markdown("#### Answer")
+        st.write(answer)
+
+    limitations = result.get("limitations", [])
+    if limitations:
+        st.warning(" | ".join(str(item) for item in limitations))
+
+    evidence = result.get("evidence", [])
+
+    st.markdown("#### Evidence")
+
+    if not evidence:
+        st.info(
+            "No supporting evidence was retrieved from the indexed sources."
+        )
+        return
+
+    for item in evidence:
+        label = item.get("label", "Evidence")
+        author = item.get("author") or "Unknown author"
+        book = item.get("book") or "Unknown source"
+        volume = item.get("volume")
+        page = item.get("page")
+        passage = item.get("text", "")
+
+        reference_parts = [book, author]
+
+        if volume:
+            reference_parts.append(f"Vol. {volume}")
+
+        if page:
+            reference_parts.append(f"p. {page}")
+
+        with st.expander(
+            f"{label} · {' · '.join(reference_parts)}",
+            expanded=(label == "E1"),
+        ):
+            st.caption("SOURCE")
+            st.write(f"{book} — {author}")
+
+            st.caption("ORIGINAL PASSAGE")
+            st.write(passage)
+
+            st.caption("REFERENCE")
+            st.write(" · ".join(reference_parts))
+
+            if item.get("chunk_id"):
+                st.caption(f"Evidence ID: {item['chunk_id']}")
 
 
 # ============================================================
@@ -504,78 +631,75 @@ if st.session_state.page == "Research":
             f"Question: {st.session_state.query}"
         )
 
-        st.info(
-            "Your RAG engine will retrieve relevant "
-            "scholarly evidence and generate a grounded synthesis."
-        )
+        if st.session_state.research_result is None:
 
-        st.markdown("#### Evidence")
+            with st.spinner("Researching the indexed sources..."):
 
-        with st.expander(
-            "E1 · Primary Evidence",
-            expanded=True,
-        ):
+                try:
+                    service = get_research_service()
 
-            st.caption(
-                "SOURCE"
-            )
+                    filters = {}
 
-            st.write(
-                "Scholarly source information will appear here."
-            )
+                    if language != "All Languages":
+                        filters["language"] = language
 
-            st.caption(
-                "ORIGINAL PASSAGE"
-            )
+                    if source_type != "All Sources":
+                        filters["category"] = source_type
 
-            st.write(
-                "Retrieved Arabic, Urdu, or English passage "
-                "will appear here."
-            )
+                    st.session_state.research_result = service.research(
+                        st.session_state.query,
+                        **filters,
+                    )
 
-            st.caption(
-                "REFERENCE"
-            )
+                except Exception as error:
+                    st.session_state.research_result = {
+                        "answer": "",
+                        "evidence": [],
+                        "scholarly_views": [],
+                        "limitations": [
+                            f"Research engine error: {error}"
+                        ],
+                        "evidence_labels_used": [],
+                    }
 
-            st.write(
-                "Book · Author · Volume · Page"
-            )
+        result = st.session_state.research_result
 
-        with st.expander(
-            "E2 · Supporting Evidence"
-        ):
-
-            st.write(
-                "Additional retrieved evidence will appear here."
-            )
+        if result:
+            _display_research_result(result)
 
         st.write("")
 
-        col1, col2, col3 = st.columns(3)
+        col1, col2 = st.columns(2)
 
         with col1:
-
-            st.button(
-                "View Evidence",
+            if st.button(
+                "New Research",
                 use_container_width=True,
-                key="view_evidence",
-            )
+                key="new_research",
+            ):
+                st.session_state.query = ""
+                st.session_state.searched = False
+                st.session_state.research_result = None
+                st.rerun()
 
         with col2:
-
-            st.button(
-                "Save Passage",
+            if st.button(
+                "Save Answer as Note",
                 use_container_width=True,
-                key="save_passage",
-            )
+                key="save_answer_note",
+            ):
+                answer_text = result.get("answer", "") if result else ""
 
-        with col3:
-
-            st.button(
-                "Add Note",
-                use_container_width=True,
-                key="add_note",
-            )
+                if answer_text:
+                    st.session_state.notes.append(
+                        {
+                            "title": st.session_state.query,
+                            "text": answer_text,
+                        }
+                    )
+                    st.success("Answer saved to Notes.")
+                else:
+                    st.warning("There is no answer to save yet.")
 
     # --------------------------------------------------------
     # CONTINUE RESEARCH
@@ -715,14 +839,114 @@ elif st.session_state.page == "Library":
 
     if uploaded_file:
 
-        st.success(
-            f"{uploaded_file.name} uploaded successfully."
+        col1, col2 = st.columns(2)
+
+        with col1:
+            author = st.text_input(
+                "Author / Scholar",
+                placeholder="Example: Ibn Kathir",
+            )
+
+            book = st.text_input(
+                "Book title",
+                value=os.path.splitext(uploaded_file.name)[0],
+            )
+
+        with col2:
+            volume = st.text_input(
+                "Volume",
+                placeholder="Example: 2",
+            )
+
+            source_language = st.selectbox(
+                "Language",
+                ["Arabic", "Urdu", "English", "Other"],
+            )
+
+        category = st.selectbox(
+            "Source type",
+            [
+                "Tafsir",
+                "Hadith",
+                "Fiqh",
+                "Aqidah",
+                "Seerah",
+                "History",
+                "Other",
+            ],
         )
 
-        st.info(
-            "Document extraction and indexing "
-            "will connect to the RAG pipeline."
+        if st.button(
+            "Index Source →",
+            type="primary",
+            use_container_width=True,
+        ):
+
+            try:
+                file_path, file_bytes = _save_uploaded_file(
+                    uploaded_file
+                )
+
+                source_id = _source_id(
+                    uploaded_file.name,
+                    file_bytes,
+                )
+
+                metadata = {
+                    "source_id": source_id,
+                    "author": author or "Unknown",
+                    "book": book or uploaded_file.name,
+                    "volume": volume or "",
+                    "language": source_language,
+                    "category": category,
+                }
+
+                with st.spinner(
+                    "Extracting, chunking, embedding, and indexing source..."
+                ):
+
+                    from backend.ingestion_service import IngestionService
+
+                    ingestion = IngestionService()
+
+                    documents = ingestion.ingest(
+                        file_path,
+                        metadata=metadata,
+                    )
+
+                    rag = get_rag_engine()
+
+                    indexed_count = rag.index_documents(
+                        documents
+                    )
+
+                st.session_state.indexed_count += indexed_count
+
+                st.success(
+                    f"Indexed {indexed_count} chunks from "
+                    f"{uploaded_file.name}."
+                )
+
+                st.info(
+                    "The source is now available to the Research page."
+                )
+
+            except Exception as error:
+
+                st.error(
+                    f"Could not index the source: {error}"
+                )
+
+    try:
+        rag = get_rag_engine()
+        total_chunks = len(rag.indexed_chunks())
+
+        st.metric(
+            "Indexed chunks",
+            total_chunks,
         )
+    except Exception:
+        pass
 
 
 # ============================================================
